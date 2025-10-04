@@ -1,26 +1,51 @@
- const clock = document.getElementById('clock');
-
+const relogio = document.getElementById('relogio');
+const botaoTema = document.getElementById('botao-tema');
+const corpo = document.body;
+const dataElemento = document.getElementById('data');
 //Uma função que cria o relogio digital 
-function updateClock() {
+function atualizarRelogio() {
+    //Pego a hora atual    
+    const agora = new Date();
+    const horas = agora.getHours();
+    const minutos = agora.getMinutes();
+    const segundos = agora.getSeconds();
 
-//Pego a hora atual    
-const now= new Date();
-const hours = now.getHours();
-const minutes = now.getMinutes();
-const seconds = now.getSeconds();
+    //Transformo os numeros que forem menores que dez em dois digitos, adicionando 0 a esquerda.
+    const horasStr = String(horas).padStart(2, '0');
+    const minutosStr = String(minutos).padStart(2, '0');
+    const segundosStr = String(segundos).padStart(2, '0');
 
-//Transformo os numeros que forem menores que dez em dois digitos, adicionando 0 a esquerda.
-const hoursStr = String(hours).padStart(2, '0');
-const minutesStr = String(minutes).padStart(2, '0');
-const secondsStr = String(seconds).padStart(2, '0');
+    const separador = segundos % 2 === 0 ? ':' : ' ';
 
-//O que vai aparecer na tela
-const timeString = `${hoursStr}:${minutesStr}:${secondsStr}`;
+    //O que vai aparecer na tela
+    const horaFinal = `${horasStr}${separador}${minutosStr}${separador}${segundosStr}`;
 
-//acrescento ela na minha <div>
-clock.innerText = timeString;
-}    
+    //acrescento ela na minha <div>
+    relogio.innerText = horaFinal;
+
+    //Mostrar data formatada
+    const opcoes = {
+        weekday:'long', 
+        year: 'numeric',
+        month: 'long', 
+        day: 'numeric'    
+    };
+
+    const dataFormatada = agora.toLocaleDateString('pt-BR', opcoes);
+    dataElemento.innerText = dataFormatada;
+}
 
 //Aqui fora desparo o intervalo
-updateClock();
-setInterval(updateClock, 1000);
+atualizarRelogio();
+setInterval(atualizarRelogio, 1000);
+
+//Alternar tema claro/escuro
+botaoTema.addEventListener('click', () => {
+    corpo.classList.toggle('tema-claro');
+
+    if (corpo.classList.contains('tema-claro')) {
+        botaoTema.textContent = '🌛';
+    } else {
+        botaoTema.textContent = '🌞';
+    }
+});

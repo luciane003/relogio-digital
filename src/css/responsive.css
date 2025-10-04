@@ -1,18 +1,26 @@
 @media(max-width:1024px) {
     .relogio-container {
-        min-height: 70vh;
+        min-height: 60vh;
     }
 }
 
 @media(max-width: 415px) {
+    #botao-tema {
+        font-size: 25px;
+    }
     .relogio-digital {
         width: 21rem;
         min-height: 9rem;
     }
 }
 
-@media(max-width: 344px) {
+@media (max-width: 375px) {
     .relogio-digital {
         width: 19rem;
+        font-size: 4rem;
+    }
+
+    #data {
+        font-size: 20px;
     }
 }
