@@ -23,6 +23,7 @@ Acesse [aqui.](https://luciane003.github.io/relogio-digital/)
 </div><br>
 
 ## Visualização
+[!Visualizção em gif](./design/relogio-digital.gif)
 
 ## Autora
 - Luciane Kellen
