@@ -13,7 +13,7 @@ No início, senti dificuldade para exibir as horas corretamente, mas depois de e
 - Exibição da data atual abaixo do relógio
 
 ## Projeto online
-Acesse [aqui.](https://luciane003.github.io/relogio-digital/)
+Acesse [aqui.](https://relogio-digital-murex.vercel.app/)
 
 ## Tecnologias
 <div>
